@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="content/portfolio-data.js"></script>
+<style>
+html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#E7DCCF;-webkit-font-smoothing:antialiased;}
+*{box-sizing:border-box;}
+a{color:#A9512F;text-decoration:none;}
+a:hover{color:#7E3820;}
+button{font:inherit;}
+@keyframes lsnFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-34px)}}
+@keyframes lsnSpin{to{transform:rotate(360deg)}}
+@keyframes lsnSlideX{0%{transform:translateX(-10vw)}100%{transform:translateX(110vw)}}
+@keyframes lsnSlideY{0%{transform:translateY(-10vh)}100%{transform:translateY(110vh)}}
+@keyframes lsnPulse{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes lsnGrow{0%,100%{transform:scaleY(.55)}50%{transform:scaleY(1)}}
+@keyframes lsnIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes lsnRing{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.5);opacity:0}}
+@keyframes lsnDot{0%,100%{box-shadow:0 0 0 0 rgba(169,81,47,.5)}50%{box-shadow:0 0 0 .8cqh rgba(169,81,47,0)}}
+@keyframes lsnDrop{0%{opacity:0;transform:translateZ(26cqh)}60%{opacity:1}100%{opacity:1;transform:translateZ(0)}}
+@keyframes lsnPop{0%{opacity:0;transform:translateY(2cqh) rotate(var(--r,0deg)) scale(.8)}100%{opacity:1;transform:translateY(0) rotate(var(--r,0deg)) scale(1)}}
+@keyframes lsnSun{0%,100%{opacity:.35}50%{opacity:.7}}
+@keyframes lsnPopIn{0%{opacity:0;transform:translateZ(0) rotateX(-90deg) scale(.35)}30%{opacity:1;transform:translateZ(var(--fz)) rotateX(-80deg) rotateZ(-5deg) scale(1.06)}55%{transform:translateZ(var(--fz2)) rotateX(-35deg) rotateZ(4deg) scale(1.02)}80%{transform:translateZ(var(--z)) rotateX(6deg) rotateZ(-1deg) scale(.98)}100%{opacity:1;transform:translateZ(var(--z)) rotateX(0) rotateZ(0) scale(1)}}
+@keyframes lsnLeaf{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(1.5cqh,1cqh) rotate(2deg)}}
+@keyframes lsnShine{0%{background-position:200% 50%}100%{background-position:-200% 50%}}
+@keyframes lsnGlow{0%,100%{opacity:.35;transform:scale(.9)}50%{opacity:.8;transform:scale(1.08)}}
+@keyframes lsnSweep{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(320%) skewX(-20deg)}}
+@keyframes lsnBorder{0%,100%{border-color:rgba(232,165,132,.35)}50%{border-color:rgba(245,239,230,.9)}}
+</style>
+</helmet>
+<div style="position:fixed;inset:0;background:radial-gradient(ellipse at 50% 45%, #EFE6DA 0%, #E3D6C6 70%, #D9CAB8 100%);overflow:hidden;font-family:'Hanken Grotesk',sans-serif;color:#2A1F1A;">
+
+  <div style="position:fixed;inset:0;pointer-events:none;overflow:hidden;">{{ bgFx }}</div>
+  <div style="position:fixed;inset:0;transform-origin:{{ zoomOrigin }};transform:{{ zoomTf }};transition:{{ zoomTrans }};">
+    <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:{{ stagePad }};perspective:1800px;">
+      <div style="position:relative;flex:none;width:{{ bw }}px;height:{{ bh }}px;transform:{{ bookTf }};transform-style:preserve-3d;transition:transform 1.35s cubic-bezier(.65,0,.25,1);">
+      <div ref="{{ bookRef }}" style="position:absolute;inset:0;container-type:size;perspective:2400px;">
+
+        <div style="position:absolute;top:-1.6cqh;bottom:-1.6cqh;left:-1.4cqh;width:calc(50% + 1.4cqh);background:#8E4128;border-radius:.9cqh 0 0 .9cqh;box-shadow:0 4cqh 8cqh rgba(70,35,18,.35);opacity:{{ leftOp }};transition:opacity .4s ease .45s;"></div>
+        <div style="position:absolute;top:-1.6cqh;bottom:-1.6cqh;left:50%;right:-1.4cqh;background:#8E4128;border-radius:0 .9cqh .9cqh 0;box-shadow:0 4cqh 8cqh rgba(70,35,18,.35);opacity:{{ rightOp }};transition:opacity .4s ease .45s;"></div>
+        <div style="position:absolute;top:0;left:0;width:50%;height:100%;background:#EFE7DC;box-shadow:-.25cqh .2cqh 0 #E2D7C9,-.5cqh .4cqh 0 #EEE5DA,-.75cqh .6cqh 0 #DACDBD,-1cqh .8cqh 0 #E8DED2;opacity:{{ leftOp }};"></div>
+        <div style="position:absolute;top:0;left:50%;width:50%;height:100%;background:#EFE7DC;box-shadow:.25cqh .2cqh 0 #E2D7C9,.5cqh .4cqh 0 #EEE5DA,.75cqh .6cqh 0 #DACDBD,1cqh .8cqh 0 #E8DED2;opacity:{{ rightOp }};"></div>
+
+        <sc-for list="{{ pages }}" as="pg" hint-placeholder-count="0">
+          <div style="position:absolute;top:0;left:50%;width:50%;height:100%;transform-origin:left center;transform:{{ pg.tf }};z-index:{{ pg.z }};transition:transform 1.15s cubic-bezier(.6,.04,.3,1);transition-delay:{{ pg.delay }};backface-visibility:hidden;background:{{ pg.bg }};overflow:hidden;color:#2A1F1A;">
+
+            <sc-if value="{{ pg.isCover }}" hint-placeholder-val="{{ false }}">
+              <div onClick="{{ openBook }}" style="position:absolute;inset:0;cursor:pointer;display:flex;flex-direction:column;padding:5.5cqh 6.5cqh 5cqh;">
+                <div style="display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:1.35cqh;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.82);"><span>Portafolio — 2026</span><span>Vol. 01</span></div>
+                <div style="flex:1;min-height:0;display:grid;grid-template-columns:{{ coverCols }};grid-template-rows:{{ coverRows }};gap:4cqh;margin-top:3.5cqh;">
+                  <div style="order:{{ coverTextOrder }};display:flex;flex-direction:column;justify-content:flex-end;gap:2.2cqh;min-width:0;">
+                    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:{{ coverTitle }};line-height:.85;color:#FFFFFF;letter-spacing:-.01em;text-shadow:0 -1px 0 rgba(0,0,0,.25),0 1px 0 rgba(255,255,255,.18);">Portafolio</div>
+                    <div style="display:flex;flex-direction:column;gap:.8cqh;">
+                      <span style="font-family:'Cormorant Garamond',serif;font-size:4.2cqh;font-weight:500;line-height:1.02;color:#FFFFFF;">Laura Sofía Navas Castañeda</span>
+                      <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.82);">Arquitecta</span>
+                    </div>
+                    <div style="height:1px;background:rgba(255,255,255,.35);"></div>
+                    <span style="font-family:'DM Mono',monospace;font-size:1.2cqh;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.82);">Residencial · Institucional · Comercial · Financiero e inmobiliario</span>
+                    <span style="font-family:'DM Mono',monospace;font-size:1.25cqh;letter-spacing:.16em;text-transform:uppercase;color:#FFFFFF;">Abrir portafolio →</span>
+                  </div>
+                  <div ref="{{ frameRef }}" style="order:1;position:relative;min-height:0;background:#EAE3D9;box-shadow:0 0 0 .5cqh #7E3820,0 0 0 .62cqh rgba(255,255,255,.18),inset 0 .5cqh 1cqh rgba(40,18,8,.28);"></div>
+                </div>
+                <div style="position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.035) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px);"></div>
+                <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(125deg,rgba(255,236,220,.26) 0%,rgba(255,236,220,0) 45%,rgba(30,12,4,.22) 100%);"></div>
+                <div style="position:absolute;inset:0;pointer-events:none;border-radius:0 .8cqh .8cqh 0;box-shadow:inset 0 .35cqh .3cqh rgba(255,225,205,.22),inset -.5cqh -.6cqh .8cqh rgba(25,8,2,.35),inset 0 0 0 .18cqh rgba(255,220,200,.08);"></div>
+                <div style="position:absolute;top:0;bottom:0;left:0;width:3.6cqh;pointer-events:none;background:linear-gradient(90deg,rgba(25,8,2,.35) 0%,rgba(255,225,205,.12) 35%,rgba(25,8,2,.08) 52%,rgba(25,8,2,.45) 66%,rgba(255,225,205,.22) 80%,rgba(255,225,205,0) 100%);"></div>
+                <div style="position:absolute;inset:0;pointer-events:none;filter:blur(1.8cqh);animation:lsnLeaf 9s ease-in-out infinite;">
+                  <div style="position:absolute;left:-6cqh;top:-4cqh;width:34cqh;height:9cqh;border-radius:50%;background:rgba(20,6,0,.16);transform:rotate(28deg);"></div>
+                  <div style="position:absolute;left:4cqh;top:12cqh;width:26cqh;height:7cqh;border-radius:50%;background:rgba(20,6,0,.13);transform:rotate(-18deg);"></div>
+                  <div style="position:absolute;left:-4cqh;top:30cqh;width:22cqh;height:6cqh;border-radius:50%;background:rgba(20,6,0,.11);transform:rotate(40deg);"></div>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isPhoto }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:grid;grid-template-columns:{{ photoCols }};grid-template-rows:{{ photoRows }};gap:5cqh;padding:7cqh 6cqh 6cqh 7cqh;">
+                <div style="display:flex;flex-direction:column;justify-content:space-between;">
+                  <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.18em;text-transform:uppercase;color:#5E4A3F;">00 — Perfil</span>
+                  <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:{{ photoName }};line-height:.86;color:#F5EFE6;">Laura<br>Sofía<br>Navas<br>Castañeda</div>
+                  <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.18em;text-transform:uppercase;color:#5E4A3F;">Arquitectura y Diseño Interior</span>
+                </div>
+                <div onClick="{{ zoom }}" data-label="Retrato" style="position:relative;overflow:hidden;border-radius:50cqh 50cqh 0 0;cursor:zoom-in;background:radial-gradient(ellipse at 50% 30%,#E9D7C6 0%,#C9A88F 75%);">
+                  <img src="content/00_perfil/laura-navas_retrato.png" alt="Laura Sofía Navas Castañeda" style="position:absolute;left:0;right:0;bottom:0;width:100%;height:94%;object-fit:cover;object-position:50% 0%;">
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isBio }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:7cqh 7cqh 7cqh 7.5cqh;">
+                <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.18em;text-transform:uppercase;color:#A9512F;">Sobre mí</span>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:7.4cqh;line-height:1;margin-top:3cqh;">¡Hola! Soy <em style="color:#A9512F;">Laura.</em></div>
+                <span style="font-family:'DM Mono',monospace;font-size:1.25cqh;letter-spacing:.16em;text-transform:uppercase;color:#8A7466;margin-top:1.6cqh;">{{ perfilTitulo }}</span>
+                <div style="height:1px;background:#D8C6B3;margin:3cqh 0;"></div>
+                <p style="margin:0;font-size:{{ bioSize }};line-height:1.65;color:#4A3A31;text-wrap:pretty;">{{ bio }}</p>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isEdu }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;gap:2.6cqh;padding:7cqh 6.5cqh 7cqh 7cqh;">
+                <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.18em;text-transform:uppercase;color:#A9512F;">Formación</span>
+                <div style="display:flex;flex-direction:column;">
+                  <sc-for list="{{ edu }}" as="ed" hint-placeholder-count="3">
+                    <div style="display:grid;grid-template-columns:14cqh 1fr;gap:2cqh;align-items:baseline;border-top:1px solid #D8C6B3;padding:1.5cqh 0;">
+                      <span style="font-family:'DM Mono',monospace;font-size:1.25cqh;letter-spacing:.1em;color:#A9512F;">{{ ed.periodo }}</span>
+                      <span style="display:flex;flex-direction:column;gap:.5cqh;"><span style="font-family:'Cormorant Garamond',serif;font-size:2.9cqh;font-weight:500;line-height:1.05;">{{ ed.titulo }}</span><span style="font-size:1.55cqh;line-height:1.4;color:#6E5A4E;">{{ ed.institucion }}</span></span>
+                    </div>
+                  </sc-for>
+                </div>
+                <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.18em;text-transform:uppercase;color:#A9512F;margin-top:1cqh;">Competencias digitales</span>
+                <div style="display:flex;flex-direction:column;gap:2cqh;">
+                  <sc-for list="{{ comp }}" as="cg" hint-placeholder-count="3">
+                    <div style="display:flex;flex-direction:column;gap:1cqh;">
+                      <span style="font-family:'DM Mono',monospace;font-size:1.15cqh;letter-spacing:.16em;text-transform:uppercase;color:#8A7466;">{{ cg.k }}</span>
+                      <div style="display:flex;flex-wrap:wrap;gap:.8cqh;">
+                        <sc-for list="{{ cg.items }}" as="tool" hint-placeholder-count="4">
+                          <span style="font-size:1.6cqh;padding:.6cqh 1.4cqh;border:1px solid #2A1F1A;border-radius:2cqh 2cqh .3cqh .3cqh;">{{ tool }}</span>
+                        </sc-for>
+                      </div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isIndexR }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:7cqh 7cqh 6cqh 7.5cqh;gap:3cqh;">
+                <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.18em;text-transform:uppercase;color:#A9512F;">Índice</span>
+                <div style="display:flex;flex-direction:column;gap:2cqh;">
+                  <sc-for list="{{ toc }}" as="s" hint-placeholder-count="5">
+                    <div style="display:flex;flex-direction:column;gap:.9cqh;">
+                      <div onClick="{{ s.go }}" style="display:flex;align-items:baseline;gap:1.6cqh;cursor:pointer;" style-hover="color:#A9512F;">
+                        <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;color:#A9512F;">{{ s.n }}</span>
+                        <span style="font-family:'Cormorant Garamond',serif;font-size:3.2cqh;font-weight:500;line-height:1;">{{ s.name }}</span>
+                        <span style="flex:1;border-bottom:1px dotted #BFA893;transform:translateY(-.6cqh);"></span>
+                        <span style="font-family:'DM Mono',monospace;font-size:1.4cqh;">{{ s.page }}</span>
+                      </div>
+                      <sc-for list="{{ s.items }}" as="it" hint-placeholder-count="0">
+                        <div onClick="{{ it.go }}" style="display:flex;align-items:baseline;gap:1.4cqh;padding-left:4.6cqh;cursor:pointer;color:#5E4A3F;" style-hover="color:#A9512F;">
+                          <span style="font-size:1.7cqh;">{{ it.name }}</span>
+                          <span style="flex:1;border-bottom:1px dotted #D8C6B3;transform:translateY(-.5cqh);"></span>
+                          <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;">{{ it.page }}</span>
+                        </div>
+                      </sc-for>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isDivL }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:7cqh 7cqh 6cqh;color:{{ pg.cat.fg }};">
+                <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.2em;text-transform:uppercase;">Sección {{ pg.cat.n }}</span>
+                <div style="display:flex;flex-direction:column;">
+                  <span style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:{{ divNum }};line-height:.72;letter-spacing:-.04em;color:{{ pg.cat.accent }};">{{ pg.cat.n }}</span>
+                  <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:8.4cqh;line-height:1;margin-top:3cqh;text-wrap:balance;">{{ pg.cat.name }}</span>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isDivR }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;gap:3cqh;padding:7cqh 7cqh 7cqh 7.5cqh;">
+                <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.18em;text-transform:uppercase;color:#A9512F;">{{ pg.cat.name }} · {{ pg.cat.count }} proyectos</span>
+                <div style="display:flex;flex-direction:column;gap:1.8cqh;">
+                  <sc-for list="{{ pg.plist }}" as="pr" hint-placeholder-count="2">
+                    <div onClick="{{ pr.go }}" style="display:grid;grid-template-columns:{{ divCols }};gap:2.4cqh;align-items:center;padding:1.4cqh;border:1px solid #E1D3C4;cursor:pointer;transition:background .3s;" style-hover="background:#EDE3D7;">
+                      <div style="height:{{ divThumbH }};background:{{ pr.tb }};"></div>
+                      <div style="display:flex;flex-direction:column;gap:.7cqh;min-width:0;">
+                        <span style="font-family:'DM Mono',monospace;font-size:1.15cqh;letter-spacing:.12em;color:#A9512F;">{{ pr.code }}</span>
+                        <span style="font-family:'Cormorant Garamond',serif;font-size:3.3cqh;font-weight:500;line-height:1.05;text-wrap:balance;">{{ pr.name }}</span>
+                        <span style="font-family:'DM Mono',monospace;font-size:1.1cqh;letter-spacing:.12em;text-transform:uppercase;color:#8A7466;">{{ pr.sub }}</span>
+                      </div>
+                      <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;color:#A9512F;padding-right:1cqh;white-space:nowrap;display:{{ deskInline }};">p. {{ pr.page }} →</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isProjL }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:6.5cqh 6.5cqh 7cqh 7cqh;">
+                <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.18em;text-transform:uppercase;color:#A9512F;">{{ pg.pr.code }} — {{ pg.cat.name }}</span>
+                <span style="font-family:'Cormorant Garamond',serif;font-size:{{ projName }};font-weight:500;line-height:.98;margin-top:3cqh;letter-spacing:-.01em;text-wrap:balance;">{{ pg.pr.name }}</span>
+                <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.8cqh;color:#A9512F;margin-top:1cqh;">{{ pg.pr.type }}</span>
+                <div style="display:grid;grid-template-columns:{{ metaCols }};gap:2cqh;margin-top:3cqh;">
+                  <sc-for list="{{ pg.pr.meta }}" as="m" hint-placeholder-count="3">
+                    <div onClick="{{ zoom }}" data-label="Ficha técnica" style="display:flex;flex-direction:column;gap:.5cqh;border-top:1px solid #2A1F1A;padding-top:1cqh;cursor:zoom-in;">
+                      <span style="font-family:'DM Mono',monospace;font-size:1.1cqh;letter-spacing:.16em;text-transform:uppercase;color:#8A7466;">{{ m.k }}</span>
+                      <span style="font-size:1.75cqh;">{{ m.v }}</span>
+                    </div>
+                  </sc-for>
+                </div>
+                <p style="margin:3cqh 0 0;font-size:{{ descSize }};line-height:1.62;color:#4A3A31;text-wrap:pretty;">{{ pg.pr.desc }}</p>
+                <div onClick="{{ pg.goGal }}" style="margin-top:auto;padding-top:2.4cqh;display:flex;flex-direction:column;gap:1.2cqh;cursor:pointer;" style-hover="opacity:.85;">
+                  <div style="display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:1.15cqh;letter-spacing:.14em;text-transform:uppercase;"><span style="color:#8A7466;">Galería · {{ pg.pr.galCount }}</span><span style="color:#A9512F;">Ver en p. {{ pg.pr.galPage }} →</span></div>
+                  <div style="display:flex;gap:1cqh;height:8cqh;">
+                    <sc-for list="{{ pg.strip }}" as="st" hint-placeholder-count="2">
+                      <div style="flex:1;min-width:0;background:{{ st.tb }};box-shadow:0 0 0 1px rgba(42,31,26,.12);"></div>
+                    </sc-for>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isProjR }}" hint-placeholder-val="{{ false }}">
+              <div onClick="{{ zoom }}" data-label="{{ pg.pr.name }}" style="position:absolute;inset:0;background:{{ pg.heroBg }};cursor:zoom-in;">
+                <div style="position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(20,10,5,0) 55%,rgba(20,10,5,.5) 100%);"></div>
+                <span style="position:absolute;top:5cqh;left:5cqh;font-family:'DM Mono',monospace;font-size:1.1cqh;letter-spacing:.12em;text-transform:uppercase;color:#2A1F1A;background:rgba(245,239,230,.92);padding:.5cqh .9cqh;font-size:1.3cqh;padding:.7cqh 1.2cqh;">{{ pg.pr.name }}</span>
+                <span style="position:absolute;right:4cqh;bottom:3cqh;font-family:'Cormorant Garamond',serif;font-size:20cqh;line-height:.8;color:#F5EFE6;letter-spacing:-.03em;text-shadow:0 .4cqh 2cqh rgba(20,10,5,.35);">{{ pg.pr.big }}</span>
+                <span style="position:absolute;left:5cqh;bottom:5cqh;font-family:'DM Mono',monospace;font-size:1.2cqh;letter-spacing:.14em;text-transform:uppercase;color:#F5EFE6;background:#2A1F1A;padding:.8cqh 1.3cqh;">Clic para ampliar +</span>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isGal }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;gap:1.6cqh;padding:5cqh 5cqh 7cqh;">
+                <sc-for list="{{ pg.items }}" as="g" hint-placeholder-count="1">
+                  <div onClick="{{ zoom }}" data-label="{{ g.alt }}" style="position:relative;flex:1;min-height:0;background-color:{{ g.base }};background-image:{{ g.bg }};background-size:{{ g.size }};background-position:center;background-repeat:no-repeat;background-origin:content-box;padding:{{ g.padd }};cursor:zoom-in;box-shadow:0 0 0 1px rgba(42,31,26,.1);transition:filter .3s;" style-hover="filter:brightness(.97);">
+                    <span style="position:absolute;left:1.2cqh;bottom:1.2cqh;font-family:'DM Mono',monospace;font-size:1.1cqh;letter-spacing:.12em;text-transform:uppercase;color:#2A1F1A;background:rgba(245,239,230,.92);padding:.5cqh .9cqh;">{{ g.label }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isContactL }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:6cqh 6.5cqh 6.5cqh 7cqh;">
+                <div style="display:flex;align-items:center;gap:1.2cqh;"><span style="width:1.2cqh;height:1.2cqh;border-radius:50%;background:#A9512F;animation:lsnDot 1.8s infinite;"></span><span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.18em;text-transform:uppercase;color:#A9512F;">Agenda 2026 abierta · Contacto</span></div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:7.6cqh;line-height:.95;margin-top:2.6cqh;letter-spacing:-.01em;">Tu proyecto merece <em style="color:#A9512F;">empezar hoy.</em></div>
+                <p style="margin:2cqh 0 0;font-size:2cqh;line-height:1.5;color:#4A3A31;max-width:92%;text-wrap:pretty;">Cuéntame tu idea y recibe una respuesta personal con los primeros pasos para hacerla realidad.</p>
+                <div style="margin-top:auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2cqh;background:#A9512F;color:#F5EFE6;padding:2.8cqh 3cqh;box-shadow:1cqh 1cqh 0 -.15cqh #F5EFE6,1cqh 1cqh 0 0 #2A1F1A;">
+                  <span style="display:flex;flex-direction:column;gap:.8cqh;">
+                    <span style="font-family:'DM Mono',monospace;font-size:1.25cqh;letter-spacing:.18em;text-transform:uppercase;opacity:.85;">Celular · WhatsApp</span>
+                    <span style="font-family:'Cormorant Garamond',serif;font-size:7cqh;font-weight:500;line-height:.9;">311 877 8973</span>
+                    <span style="font-size:1.75cqh;">Escríbeme desde «Cotiza por WhatsApp»</span>
+                  </span>
+                  <span style="width:8cqh;height:9cqh;border-radius:4cqh 4cqh .4cqh .4cqh;border:1px solid rgba(245,239,230,.6);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:3.4cqh;">☏</span>
+                </div>
+                <a href="{{ mailLink }}" style="margin-top:2.4cqh;display:grid;grid-template-columns:1fr auto;align-items:center;gap:2cqh;border:1px solid #2A1F1A;color:#2A1F1A;padding:2cqh 3cqh;transition:background .3s;" style-hover="background:#EDE3D7;color:#2A1F1A;">
+                  <span style="display:flex;flex-direction:column;gap:.6cqh;"><span style="font-family:'DM Mono',monospace;font-size:1.2cqh;letter-spacing:.18em;text-transform:uppercase;color:#8A7466;">Correo</span><span style="font-family:'Cormorant Garamond',serif;font-size:{{ emailSize }};font-weight:500;line-height:1;word-break:break-all;">laura.sofianavas@gmail.com</span></span>
+                  <span style="font-size:2.6cqh;color:#A9512F;">↗</span>
+                </a>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isContactR }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;padding:6cqh 7cqh 6.5cqh 7.5cqh;color:#F5EFE6;">
+                <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.18em;text-transform:uppercase;color:#D8BBA2;">Cómo empezamos</span>
+                <div style="display:flex;flex-direction:column;margin-top:3cqh;">
+                  <div style="display:grid;grid-template-columns:11cqh 1fr;gap:2cqh;align-items:baseline;border-top:1px solid rgba(245,239,230,.25);padding:2cqh 0;"><span style="font-family:'Cormorant Garamond',serif;font-size:7cqh;line-height:.8;color:#D8BBA2;">01</span><span style="display:flex;flex-direction:column;gap:.5cqh;"><span style="font-family:'Cormorant Garamond',serif;font-size:3.4cqh;font-weight:500;">Me escribes</span><span style="font-size:1.75cqh;line-height:1.45;opacity:.85;">Tipo de proyecto, ubicación y área aproximada.</span></span></div>
+                  <div style="display:grid;grid-template-columns:11cqh 1fr;gap:2cqh;align-items:baseline;border-top:1px solid rgba(245,239,230,.25);padding:2cqh 0;"><span style="font-family:'Cormorant Garamond',serif;font-size:7cqh;line-height:.8;color:#D8BBA2;">02</span><span style="display:flex;flex-direction:column;gap:.5cqh;"><span style="font-family:'Cormorant Garamond',serif;font-size:3.4cqh;font-weight:500;">Reunión inicial</span><span style="font-size:1.75cqh;line-height:1.45;opacity:.85;">Revisamos tu idea, presupuesto y tiempos.</span></span></div>
+                  <div style="display:grid;grid-template-columns:11cqh 1fr;gap:2cqh;align-items:baseline;border-top:1px solid rgba(245,239,230,.25);border-bottom:1px solid rgba(245,239,230,.25);padding:2cqh 0;"><span style="font-family:'Cormorant Garamond',serif;font-size:7cqh;line-height:.8;color:#D8BBA2;">03</span><span style="display:flex;flex-direction:column;gap:.5cqh;"><span style="font-family:'Cormorant Garamond',serif;font-size:3.4cqh;font-weight:500;">Propuesta a tu medida</span><span style="font-size:1.75cqh;line-height:1.45;opacity:.85;">Diseño, alcance y honorarios claros desde el inicio.</span></span></div>
+                </div>
+                <div style="margin-top:auto;display:flex;align-items:center;gap:1.2cqh;"><span style="width:1.1cqh;height:1.1cqh;border-radius:50%;background:#E8A584;animation:lsnPulse 1.4s infinite;"></span><span style="font-family:'DM Mono',monospace;font-size:1.25cqh;letter-spacing:.14em;text-transform:uppercase;color:#E8C9B4;">Cupos limitados para nuevos proyectos este trimestre</span></div>
+                <div style="position:relative;margin-top:2.4cqh;padding:3.4cqh 3.4cqh 3.2cqh;border:1px solid rgba(232,165,132,.35);border-radius:6cqh 6cqh .4cqh .4cqh;overflow:hidden;animation:lsnBorder 3.2s ease-in-out infinite;">
+                  <span style="position:absolute;right:-8cqh;top:-10cqh;width:30cqh;height:30cqh;border-radius:50%;background:radial-gradient(circle,rgba(232,165,132,.55) 0%,rgba(232,165,132,0) 65%);animation:lsnGlow 4s ease-in-out infinite;pointer-events:none;"></span>
+                  <span style="position:absolute;left:-6cqh;bottom:-12cqh;width:26cqh;height:26cqh;border-radius:50%;background:radial-gradient(circle,rgba(245,239,230,.25) 0%,rgba(245,239,230,0) 65%);animation:lsnGlow 5s ease-in-out -2s infinite;pointer-events:none;"></span>
+                  <span style="position:absolute;top:0;bottom:0;left:0;width:30%;background:linear-gradient(90deg,rgba(245,239,230,0),rgba(245,239,230,.14),rgba(245,239,230,0));animation:lsnSweep 4.5s ease-in-out infinite;pointer-events:none;"></span>
+                  <div style="position:relative;font-family:'Syne',sans-serif;font-weight:800;font-size:4.3cqh;line-height:1.02;letter-spacing:-.02em;text-transform:uppercase;background:linear-gradient(100deg,#F5EFE6 0%,#F5EFE6 35%,#FFD9C2 45%,#E8A584 50%,#FFD9C2 55%,#F5EFE6 65%,#F5EFE6 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:lsnShine 5s linear infinite;text-wrap:balance;">Cada gran espacio comienza con una gran idea.</div>
+                  <div style="position:relative;margin-top:1.6cqh;display:flex;align-items:center;gap:1.6cqh;">
+                    <span style="height:1px;width:5cqh;background:#E8A584;"></span>
+                    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:3.2cqh;line-height:1.1;color:#FFD9C2;text-shadow:0 0 2.4cqh rgba(232,165,132,.65);">Cuéntanos la tuya y hagámosla realidad</span>
+                  </div>
+                </div>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.isBack }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2cqh;color:#F5EFE6;">
+                <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16cqh;line-height:1;">LSN</span>
+                <span style="font-family:'DM Mono',monospace;font-size:1.3cqh;letter-spacing:.22em;text-transform:uppercase;">Laura Sofía Navas Castañeda · Arquitecta</span>
+              </div>
+            </sc-if>
+
+            <sc-if value="{{ pg.foot }}" hint-placeholder-val="{{ false }}">
+              <div style="position:absolute;left:7cqh;right:6.5cqh;bottom:3cqh;display:flex;justify-content:space-between;font-family:'DM Mono',monospace;font-size:1.1cqh;letter-spacing:.16em;text-transform:uppercase;color:{{ pg.footColor }};pointer-events:none;"><span>LSN — {{ pg.sec }}</span><span>{{ pg.num }}</span></div>
+            </sc-if>
+
+            <div style="position:absolute;inset:0;pointer-events:none;background:{{ pg.shade }};"></div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="position:absolute;left:50%;top:0;width:50%;height:100%;transform:translateZ(-{{ thick }}px);box-shadow:{{ groundShadow }};border-radius:4px;opacity:{{ popOp }};transition:opacity .5s;"></div>
+      <div style="position:absolute;left:calc(50% - {{ thick }}px);top:0;width:{{ thick }}px;height:100%;transform-origin:right center;transform:rotateY(-90deg);background:linear-gradient(90deg,#5E2614 0%,#8E4128 28%,#A85434 52%,#8E4128 78%,#6A2C17 100%);border-radius:{{ thick }}px 0 0 {{ thick }}px;opacity:{{ popOp }};transition:opacity .4s;"></div>
+      <div style="position:absolute;left:50%;top:100%;width:50%;height:{{ thick }}px;transform-origin:center top;transform:rotateX(-90deg);background:linear-gradient(180deg,#7A381F 0 13%,#5E2614 13% 15%,transparent 15% 85%,#5E2614 85% 87%,#7A381F 87%),repeating-linear-gradient(180deg,#F7F1E8 0 1px,#E2D7C8 1px 2px,#EFE7DC 2px 3px);opacity:{{ popOp }};transition:opacity .4s;"></div>
+      <div style="position:absolute;left:100%;top:0;width:{{ thick }}px;height:100%;transform-origin:left center;transform:rotateY(90deg);background:linear-gradient(90deg,#7A381F 0 13%,#5E2614 13% 15%,transparent 15% 85%,#5E2614 85% 87%,#7A381F 87%),repeating-linear-gradient(90deg,#F7F1E8 0 1px,#E2D7C8 1px 2px,#EFE7DC 2px 3px);opacity:{{ popOp }};transition:opacity .4s;"></div>
+      <div style="position:absolute;left:{{ mfx }}px;top:{{ mfy }}px;width:{{ mfw }}px;height:{{ mfh }}px;transform-style:preserve-3d;pointer-events:none;opacity:{{ popOp }};transition:opacity .45s ease;">{{ popScene }}</div>
+      </div>
+    </div>
+  </div>
+
+  <sc-if value="{{ zoomed }}" hint-placeholder-val="{{ false }}">
+    <div onPointerDown="{{ dragStart }}" style="position:fixed;inset:0;z-index:40;cursor:{{ zoomCursor }};touch-action:none;"></div>
+    <div style="position:fixed;left:50%;bottom:26px;transform:translateX(-50%);z-index:45;width:max-content;max-width:calc(100vw - 32px);display:flex;align-items:stretch;background:#2A1F1A;color:#F5EFE6;box-shadow:6px 6px 0 -1px #E7DCCF,6px 6px 0 0 #A9512F;animation:lsnIn .5s ease both;">
+      <div style="display:flex;align-items:center;gap:14px;padding:12px 20px;">
+        <span style="width:30px;height:36px;border:1px solid #D8BBA2;border-radius:15px 15px 2px 2px;display:flex;align-items:center;justify-content:center;font-size:14px;">✥</span>
+        <span style="display:flex;flex-direction:column;gap:3px;"><span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#D8BBA2;">Detalle · {{ zoomLabel }}</span><span style="font-size:13.5px;">Mantén el clic izquierdo y arrastra para recorrer el detalle</span></span>
+      </div>
+      <button onClick="{{ unzoom }}" style="border:none;border-left:1px solid rgba(245,239,230,.2);background:#A9512F;color:#F5EFE6;padding:0 20px;cursor:pointer;display:flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;" style-hover="background:#93441F;"><span style="border:1px solid #F5EFE6;padding:3px 6px;font-size:10px;">Esc</span>Salir</button>
+    </div>
+  </sc-if>
+
+  <div data-panel="1" style="position:fixed;top:22px;left:24px;z-index:60;display:flex;flex-direction:column;gap:8px;">
+    <button onClick="{{ toggleFilter }}" style="display:flex;align-items:center;gap:14px;background:#F5EFE6;border:1px solid #2A1F1A;padding:12px 18px 12px 14px;cursor:pointer;color:#2A1F1A;box-shadow:5px 5px 0 -1px #E7DCCF,5px 5px 0 0 #A9512F;transition:transform .25s,box-shadow .25s;" style-hover="transform:translate(-2px,-2px);box-shadow:8px 8px 0 -1px #E7DCCF,8px 8px 0 0 #A9512F;">
+      <span style="display:grid;grid-template-columns:8px 8px;gap:2px;"><span style="height:8px;border:1px solid #2A1F1A;"></span><span style="height:8px;background:#A9512F;"></span><span style="height:8px;background:#D8BBA2;"></span><span style="height:8px;border:1px solid #2A1F1A;"></span></span>
+      <span style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:500;line-height:1;">Proyectos</span>
+      <span style="width:1px;height:18px;background:#D3BFAB;display:{{ deskInline }};"></span>
+      <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A9512F;display:{{ deskInline }};">{{ activeCatName }}</span>
+      <span style="font-family:'DM Mono',monospace;font-size:13px;">{{ filterSign }}</span>
+    </button>
+    <sc-if value="{{ filterOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="width:min(330px, calc(100vw - 48px));max-height:calc(100vh - 110px);overflow-y:auto;background:#F5EFE6;border:1px solid #D3BFAB;box-shadow:0 24px 60px rgba(90,52,36,.18);padding:18px 0 10px;">
+        <div style="padding:0 20px 12px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#8A7466;">Filtrar por categoría</div>
+        <sc-for list="{{ catsNav }}" as="c" hint-placeholder-count="3">
+          <div style="border-top:1px solid #E3D6C8;">
+            <div onClick="{{ c.toggle }}" style="display:flex;align-items:center;gap:14px;padding:14px 20px;cursor:pointer;background:{{ c.rowBg }};" style-hover="background:#EDE3D7;">
+              <span style="font-family:'DM Mono',monospace;font-size:11px;color:#A9512F;">{{ c.n }}</span>
+              <span style="flex:1;font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;">{{ c.name }}</span>
+              <span style="font-family:'DM Mono',monospace;font-size:10px;color:#8A7466;">{{ c.count }}</span>
+              <span style="font-family:'DM Mono',monospace;font-size:14px;width:12px;text-align:center;">{{ c.sign }}</span>
+            </div>
+            <sc-if value="{{ c.open }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;flex-direction:column;padding:0 0 10px;">
+                <sc-for list="{{ c.projects }}" as="p" hint-placeholder-count="2">
+                  <div onClick="{{ p.go }}" style="display:flex;align-items:center;gap:12px;padding:9px 20px 9px 46px;cursor:pointer;" style-hover="background:#EDE3D7;color:#A9512F;">
+                    <span style="width:34px;height:24px;flex:none;background:{{ p.thumb }};"></span>
+                    <span style="flex:1;display:flex;flex-direction:column;gap:2px;"><span style="font-size:14px;font-weight:500;">{{ p.name }}</span><span style="font-size:11px;color:#8A7466;">{{ p.sub }}</span></span>
+                    <span style="font-family:'DM Mono',monospace;font-size:10px;color:#8A7466;">p.{{ p.page }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </sc-if>
+  </div>
+
+  <div style="position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:30;width:max-content;white-space:nowrap;display:{{ brandDisplay }};flex-direction:column;align-items:center;gap:2px;pointer-events:none;">
+    <span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;line-height:1.1;">Laura Sofía Navas Castañeda</span>
+    <span style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:#8A7466;">Arquitecta</span>
+  </div>
+
+  <button onClick="{{ goContact }}" style="position:fixed;top:22px;right:28px;z-index:30;background:#A9512F;color:#F5EFE6;border:none;padding:13px 20px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:12px;white-space:nowrap;box-shadow:5px 5px 0 -1px #E7DCCF,5px 5px 0 0 #2A1F1A;transition:transform .25s,box-shadow .25s,background .25s;" style-hover="transform:translate(-2px,-2px);box-shadow:8px 8px 0 -1px #E7DCCF,8px 8px 0 0 #2A1F1A;background:#93441F;">{{ ctaLabel }} <span style="font-size:15px;">→</span></button>
+
+  <div style="position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:30;display:flex;align-items:flex-end;gap:4px;background:#F5EFE6;border:1px solid #2A1F1A;padding:6px;box-shadow:5px 5px 0 -1px #E7DCCF,5px 5px 0 0 #A9512F;">
+    <button onClick="{{ prev }}" style="width:40px;height:44px;border:1px solid #2A1F1A;border-radius:20px 20px 2px 2px;background:transparent;cursor:pointer;font-size:16px;color:#2A1F1A;transition:background .25s,color .25s;" style-hover="background:#2A1F1A;color:#F5EFE6;">←</button>
+    <div style="display:{{ chipsDisplay }};gap:4px;align-items:flex-end;">
+    <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="5">
+      <button onClick="{{ ch.go }}" style="height:44px;padding:0 14px;border:none;border-bottom:2px solid {{ ch.line }};border-radius:14px 14px 0 0;cursor:pointer;display:flex;align-items:center;gap:8px;background:{{ ch.bg }};color:{{ ch.fg }};transition:background .3s,color .3s;" style-hover="border-bottom-color:#A9512F;">
+        <span style="font-family:'DM Mono',monospace;font-size:9.5px;opacity:.7;">{{ ch.n }}</span><span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:500;">{{ ch.label }}</span>
+      </button>
+    </sc-for>
+    </div>
+    <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8A7466;padding:0 12px;min-width:120px;text-align:center;align-self:center;">{{ counter }}</span>
+    <button onClick="{{ next }}" style="width:40px;height:44px;border:none;border-radius:20px 20px 2px 2px;background:#2A1F1A;color:#F5EFE6;cursor:pointer;font-size:16px;transition:background .25s;" style-hover="background:#A9512F;">→</button>
+  </div>
+
+  <sc-if value="{{ helpOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;left:24px;bottom:{{ cornerBottom }};z-index:55;width:min(340px, calc(100vw - 48px));background:#F5EFE6;border:1px solid #2A1F1A;box-shadow:6px 6px 0 -1px #E7DCCF,6px 6px 0 0 #A9512F;animation:lsnIn .6s ease .4s both;">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 18px 12px;border-bottom:1px solid #E1D3C4;">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;line-height:1;">Cómo recorrer <em style="color:#A9512F;">el portafolio</em></span>
+        <button onClick="{{ closeHelp }}" style="width:28px;height:28px;border:1px solid #2A1F1A;background:transparent;cursor:pointer;font-size:12px;" style-hover="background:#2A1F1A;color:#F5EFE6;">✕</button>
+      </div>
+      <sc-for list="{{ helpRows }}" as="hr" hint-placeholder-count="4">
+        <div style="display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:center;padding:10px 18px;border-bottom:1px solid #EDE3D7;">
+          <span style="height:30px;border:1px solid #2A1F1A;border-radius:15px 15px 2px 2px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#A9512F;">{{ hr.k }}</span>
+          <span style="font-size:13px;line-height:1.4;color:#4A3A31;">{{ hr.t }}</span>
+        </div>
+      </sc-for>
+      <button onClick="{{ closeHelp }}" style="width:100%;border:none;background:#2A1F1A;color:#F5EFE6;padding:13px;cursor:pointer;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;" style-hover="background:#A9512F;">Entendido, empezar →</button>
+    </div>
+  </sc-if>
+  <sc-if value="{{ helpClosed }}" hint-placeholder-val="{{ false }}">
+    <button onClick="{{ openHelp }}" title="Cómo navegar" style="position:fixed;left:24px;bottom:{{ cornerBottom }};z-index:30;width:46px;height:54px;border:1px solid #2A1F1A;border-radius:23px 23px 2px 2px;background:#F5EFE6;cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:#A9512F;box-shadow:4px 4px 0 -1px #E7DCCF,4px 4px 0 0 #2A1F1A;transition:transform .25s;" style-hover="transform:translateY(-3px);">?</button>
+  </sc-if>
+
+  <a href="{{ waLink }}" target="_blank" rel="noopener" style="position:fixed;right:28px;bottom:{{ cornerBottom }};z-index:30;display:flex;align-items:center;gap:12px;white-space:nowrap;transition:bottom .3s;background:#A9512F;color:#F5EFE6;padding:10px {{ waPadR }} 10px 10px;border-radius:30px 30px 3px 3px;box-shadow:5px 5px 0 -1px #E7DCCF,5px 5px 0 0 #2A1F1A;transition:transform .25s,background .25s;" style-hover="transform:translateY(-3px);background:#93441F;color:#F5EFE6;">
+    <span style="position:relative;width:40px;height:40px;border-radius:50%;background:#F5EFE6;color:#A9512F;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;">
+      <span style="position:absolute;inset:0;border-radius:50%;border:2px solid #F5EFE6;animation:lsnRing 1.8s ease-out infinite;"></span>wa
+    </span>
+    <span style="display:{{ waLabelDisplay }};flex-direction:column;gap:2px;"><span style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.85;">Cotiza por WhatsApp</span><span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;line-height:1;">311 877 8973</span></span>
+  </a>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+let N = 1;
+const WA_MSG = '¡Hola! 😊 Vi tu página y me encantó tu trabajo. Tengo un proyecto en mente y me gustaría que me contaras cómo trabajas y cómo podríamos empezar.\n• Tipo de proyecto: (casa / remodelación / apartamento / local / otro)\n• Ubicación: \n• Área aproximada: \n• ¿Ya cuenta con el lote o inmueble?: \n\n¿Me podría indicar los siguientes pasos? Gracias.';
+const WA = 'https://wa.me/573118778973?text=' + encodeURIComponent(WA_MSG);
+const MAIL = 'mailto:laura.sofianavas@gmail.com?subject=' + encodeURIComponent('Quiero iniciar mi proyecto');
+const BG_FX = [
+  { left: '3vw', bottom: '-60px', width: '240px', height: '380px', border: '1.5px solid rgba(169,81,47,.28)', borderBottom: 'none', borderRadius: '120px 120px 0 0', animation: 'lsnFloat 16s ease-in-out infinite' },
+  { left: 'calc(3vw + 40px)', bottom: '-60px', width: '160px', height: '300px', border: '1px solid rgba(169,81,47,.18)', borderBottom: 'none', borderRadius: '80px 80px 0 0', animation: 'lsnFloat 16s ease-in-out -4s infinite' },
+  { right: '6vw', top: '12vh', width: '170px', height: '170px', border: '1px solid rgba(90,52,36,.2)', animation: 'lsnSpin 70s linear infinite' },
+  { right: 'calc(6vw + 35px)', top: 'calc(12vh + 35px)', width: '100px', height: '100px', background: 'rgba(216,187,162,.35)', animation: 'lsnSpin 50s linear infinite reverse' },
+  { right: '-120px', bottom: '8vh', width: '360px', height: '360px', borderRadius: '50%', border: '1px dashed rgba(169,81,47,.28)', animation: 'lsnSpin 120s linear infinite' },
+  { left: '-90px', top: '16vh', width: '260px', height: '130px', borderRadius: '130px 130px 0 0', background: 'rgba(216,187,162,.38)', animation: 'lsnFloat 20s ease-in-out -6s infinite' },
+  { left: '0', right: '0', top: '0', height: '1px', background: 'rgba(169,81,47,.22)', animation: 'lsnSlideY 34s linear infinite' },
+  { top: '0', bottom: '0', left: '0', width: '1px', background: 'rgba(90,52,36,.16)', animation: 'lsnSlideX 46s linear infinite' },
+  { left: '8vw', top: '9vh', width: '180px', height: '120px', backgroundImage: 'radial-gradient(rgba(90,52,36,.35) 1px, transparent 1.2px)', backgroundSize: '14px 14px', animation: 'lsnPulse 7s ease-in-out infinite' },
+  ...[0, 1, 2, 3, 4].map(i => ({ right: `calc(14vw + ${i * 26}px)`, bottom: '0', width: '8px', height: '34vh', background: 'rgba(169,81,47,.12)', transformOrigin: 'bottom', animation: `lsnGrow 9s ease-in-out ${-i * 0.9}s infinite` })),
+  ...[0, 1, 2, 3].map(i => ({ left: `calc(20vw + ${i * 34}px)`, top: `${4 + i * 3}vh`, width: `${140 - i * 34}px`, height: '3vh', borderTop: '1px solid rgba(90,52,36,.18)', borderLeft: '1px solid rgba(90,52,36,.18)' }))
+];
+const pad = n => String(n).padStart(2, '0');
+
+class Component extends DCLogic {
+  state = { cur: 0, hot: {}, delays: {}, filterOpen: false, openCat: null, zoom: null, zo: '50% 50%', bw: 1200, bh: 500, pan: { x: 0, y: 0 }, dragging: false, help: true, mob: false, side: 'R' };
+  drag = null;
+  dragStart = e => {
+    if (!this.state.zoom) return;
+    this.drag = { x: e.clientX, y: e.clientY, px: this.state.pan.x, py: this.state.pan.y };
+    this.setState({ dragging: true });
+  };
+  onMove = e => {
+    if (!this.drag) return;
+    this.setState({ pan: { x: this.drag.px + e.clientX - this.drag.x, y: this.drag.py + e.clientY - this.drag.y } });
+  };
+  onUp = () => { if (this.drag) { this.drag = null; this.setState({ dragging: false }); } };
+  closeHelp = () => { this.setState({ help: false }); try { localStorage.setItem('lsn_help_seen', '1'); } catch (e) {} };
+  tm = {};
+  lock = 0;
+  seen = new Set();
+
+  build() {
+    if (this._pages) return this._pages;
+    const D = window.LSN_PORTFOLIO;
+    if (!D) { this.cats = []; this.contactLeft = 1; return []; }
+    this.D = D;
+    const P = [{ type: 'Cover' }, { type: 'Photo' }, { type: 'Bio', sec: 'Perfil' }, { type: 'Edu', sec: 'Formación' }, { type: 'IndexR', sec: 'Índice' }];
+    this.cats = [];
+    D.categorias.forEach(c0 => {
+      const list = D.proyectos.filter(p => p.categoria === c0.id);
+      if (!list.length) return;
+      const c = { ...c0, count: list.length, leftPage: P.length };
+      this.cats.push(c);
+      P.push({ type: 'DivL', cat: c }, { type: 'DivR', cat: c, sec: c.name });
+      c.projects = list.map((p, i) => {
+        const gal = [
+          ...p.renders.slice(1).map((r, j) => ({ ...r, label: 'Render ' + pad(j + 2), size: 'cover', base: '#E3D6C8', padd: '0' })),
+          ...(p.planos || []).map(r => ({ ...r, label: 'Planimetría', size: 'contain', base: '#FFFFFF', padd: '2.4cqh', plano: true }))
+        ];
+        const nl = Math.floor(gal.length / 2), code = c.n + '.' + (i + 1);
+        const meta = [...(p.ubicacion ? [{ k: 'Ubicación', v: p.ubicacion }] : []), { k: 'Categoría', v: c.short },
+          { k: 'Contenido', v: p.renders.length + ' renders' + (p.planos && p.planos.length ? ' · planimetría' : '') }];
+        const pr = { id: p.id, name: p.nombre, type: p.tipo, loc: p.ubicacion, sub: p.tipo + (p.ubicacion ? ' · ' + p.ubicacion : ''),
+          desc: p.descripcion, code, big: code, hero: p.hero, thumb: "#E3D6C8 url('" + p.hero.file + "') center/cover no-repeat",
+          meta, gal, galCount: gal.length + ' imágenes', page: pad(P.length), galPage: pad(P.length + 2), leftPage: P.length };
+        P.push({ type: 'ProjL', cat: c, pr, sec: c.name }, { type: 'ProjR', cat: c, pr },
+          { type: 'Gal', cat: c, pr, items: gal.slice(0, nl), sec: p.nombre }, { type: 'Gal', cat: c, pr, items: gal.slice(nl), sec: p.nombre });
+        return pr;
+      });
+    });
+    this.contactLeft = P.length;
+    P.push({ type: 'ContactL', sec: 'Contacto' }, { type: 'ContactR' }, { type: 'Back' });
+    N = P.length / 2;
+    this._pages = P;
+    return P;
+  }
+
+  curOf = leftPage => (leftPage + 1) / 2;
+
+  pos = () => { const { cur, side } = this.state; return cur === 0 ? 0 : cur === N ? 2 * N - 1 : side === 'R' ? 2 * cur : 2 * cur - 1; };
+  setPos = p => {
+    p = Math.max(0, Math.min(2 * N - 1, p));
+    if (p % 2 === 0) this.go(p / 2, p === 0 ? 'R' : 'R'); else this.go((p + 1) / 2, 'L');
+  };
+  go = (t, side, keep) => {
+    t = Math.max(0, Math.min(N, t));
+    side = side || (t === 0 ? 'R' : 'L');
+    if (t === 0 && this.state.cur !== 0) this.coverKey++;
+    const c = this.state.cur;
+    if (t === c) { this.lock = Date.now() + 650; this.setState({ filterOpen: keep ? this.state.filterOpen : false, zoom: null, side }); return; }
+    const fwd = t > c, ks = [];
+    if (fwd) for (let k = c; k < t; k++) ks.push(k); else for (let k = c - 1; k >= t; k--) ks.push(k);
+    const st = ks.length > 1 ? Math.min(130, 900 / ks.length) : 0;
+    const hot = { ...this.state.hot }, delays = {};
+    ks.forEach((k, i) => {
+      delays[k] = Math.round(i * st);
+      hot[k] = 1000 + (fwd ? N - k : k);
+      clearTimeout(this.tm[k]);
+      this.tm[k] = setTimeout(() => this.setState(s => { const h = { ...s.hot }; delete h[k]; return { hot: h }; }), delays[k] + 1200);
+    });
+    this.lock = Date.now() + Math.max(900, st * ks.length + 650);
+    this.setState({ cur: t, side, hot, delays, zoom: null, filterOpen: keep ? this.state.filterOpen : false });
+  };
+  next = () => this.state.mob ? this.setPos(this.pos() + 1) : this.go(this.state.cur + 1);
+  prev = () => this.state.mob ? this.setPos(this.pos() - 1) : this.go(this.state.cur - 1);
+
+  zoom = e => {
+    e.stopPropagation();
+    if (this.state.zoom) return this.setState({ zoom: null });
+    if (this.state.cur === 0 || this.state.cur === N) return;
+    const el = e.currentTarget, r = el.getBoundingClientRect();
+    const W = innerWidth, H = innerHeight;
+    const s = Math.min((W * 0.82) / r.width, (H * 0.76) / r.height, 4);
+    const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    this.setState({ pan: { x: 0, y: 0 }, help: false, zo: `${cx}px ${cy}px`, zoom: { tx: W / 2 - cx, ty: H / 2 - cy, s, label: el.dataset.label || 'Detalle' }, filterOpen: false });
+  };
+  unzoom = () => this.setState({ zoom: null });
+
+  resize = () => {
+    const W = innerWidth, H = innerHeight, mob = W < 760;
+    if (mob) {
+      const pw = Math.min(W * 0.9, (H - 190) * 0.72);
+      this.setState({ mob, narrow: true, bw: Math.round(pw * 2), bh: Math.round(pw / 0.72) });
+    } else {
+      const bw = Math.max(320, Math.min(W * 0.84, (H - 190) * 2.4, 1600));
+      this.setState({ mob, bw: Math.round(bw), bh: Math.round(bw / 2.4), narrow: W < 1320, chipsHide: W < 1180 });
+    }
+  };
+  onWheel = e => {
+    if (e.target.closest && e.target.closest('[data-panel]')) return;
+    e.preventDefault();
+    if (this.state.zoom) { const p = this.state.pan; this.setState({ pan: { x: p.x - e.deltaX, y: p.y - e.deltaY } }); return; }
+    const d = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+    if (Math.abs(d) < 10 || Date.now() < this.lock) return;
+    this.lock = Date.now() + 900;
+    d > 0 ? this.next() : this.prev();
+  };
+  onKey = e => {
+    if (e.key === 'Escape') return this.setState({ zoom: null, filterOpen: false, help: false });
+    if (this.state.zoom) return;
+    if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); this.next(); }
+    if (['ArrowLeft', 'ArrowUp', 'PageUp'].includes(e.key)) { e.preventDefault(); this.prev(); }
+  };
+  onTs = e => { this.t0 = [e.touches[0].clientX, e.touches[0].clientY]; };
+  onTe = e => {
+    if (!this.t0 || this.state.zoom || (e.target.closest && e.target.closest('[data-panel]'))) return;
+    const dx = e.changedTouches[0].clientX - this.t0[0], dy = e.changedTouches[0].clientY - this.t0[1];
+    const d = Math.abs(dx) > Math.abs(dy) ? -dx : -dy;
+    if (Math.abs(d) > 40) d > 0 ? this.next() : this.prev();
+  };
+
+  componentDidMount() {
+    this.resize();
+    this.preload();
+    if (!window.LSN_PORTFOLIO) this.dataT = setInterval(() => { if (window.LSN_PORTFOLIO) { clearInterval(this.dataT); this._pages = null; this.forceUpdate(); } }, 80);
+    setTimeout(this.measure, 60);
+    if (document.fonts) document.fonts.ready.then(() => this.measure());
+    try { if (localStorage.getItem('lsn_help_seen')) this.setState({ help: false }); } catch (e) {}
+    addEventListener('pointermove', this.onMove);
+    addEventListener('pointerup', this.onUp);
+    addEventListener('resize', this.resize);
+    addEventListener('wheel', this.onWheel, { passive: false });
+    addEventListener('keydown', this.onKey);
+    addEventListener('touchstart', this.onTs, { passive: true });
+    addEventListener('touchend', this.onTe);
+  }
+  componentWillUnmount() {
+    clearInterval(this.dataT);
+    removeEventListener('resize', this.resize);
+    removeEventListener('pointermove', this.onMove);
+    removeEventListener('pointerup', this.onUp);
+    removeEventListener('wheel', this.onWheel);
+    removeEventListener('keydown', this.onKey);
+    removeEventListener('touchstart', this.onTs);
+    removeEventListener('touchend', this.onTe);
+  }
+
+  coverKey = 0;
+  frameRef = el => { this.frameEl = el; };
+  bookRef = el => { this.bookEl = el; };
+  measure = () => {
+    const f = this.frameEl, b = this.bookEl;
+    if (!f || !b) return;
+    let x = 0, y = 0, n = f;
+    while (n && n !== b) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
+    if (n !== b) return;
+    const mf = { x: Math.round(x), y: Math.round(y), w: f.offsetWidth, h: f.offsetHeight }, o = this.state.mf;
+    if (!o || o.x !== mf.x || o.y !== mf.y || o.w !== mf.w || o.h !== mf.h) this.setState({ mf });
+  };
+  componentDidUpdate() { this.measure(); }
+  preload() { ['01-wood','02-blue','03-brown','04-art','05-lantern','06-tree','07-rug','08-sofa','09-cushions','10-armchair','11-table','12-vase','13-side','14-materials'].forEach(n => { const i = new Image(); i.src = 'assets/mb/' + n + '.png'; }); }
+  popScene() {
+    const mf = this.state.mf;
+    if (!mf || !mf.w) return null;
+    const k = this.coverKey + '_' + mf.w + '_' + mf.h;
+    if (this._ps && this._psk === k) return this._ps;
+    const e = React.createElement;
+    const BH = Math.min(mf.h * 0.97, mf.w * 0.97 * 1.5), U = BH / 150, BW = BH / 1.5;
+    const ox = (mf.w - BW) / 2, oy = (mf.h - BH) / 2;
+    const p = v => (v * U).toFixed(2) + 'px';
+    let n = 0, i = 0;
+    const D = st => e('div', { key: n++, style: { position: 'absolute', ...st } });
+    const el = (x, y, w, hh, z, kids, extra) => {
+      const d = 0.4 + 0.5 * i++, zz = (0.6 + z * 0.1) * U;
+      return e('div', { key: 'el' + i, style: { position: 'absolute', left: (ox + x * U) + 'px', top: (oy + y * U) + 'px', width: p(w), height: p(hh), '--z': zz + 'px', '--fz': ((26 + z * 1.2) * U) + 'px', '--fz2': ((10 + z * 0.6) * U) + 'px', transformOrigin: '50% 100%', transform: `translateZ(${zz}px)`, animation: `lsnPopIn 1.5s cubic-bezier(.3,.7,.3,1) ${d}s both`, filter: `drop-shadow(0 ${p(0.6)} ${p(0.9)} rgba(60,30,20,.28))`, ...(extra || {}) } }, kids || null);
+    };
+    const S = BH / 1104;
+    const MB = [['01-wood',222,166,338,362,1],['02-blue',400,126,188,319,2],['03-brown',441,62,65,63,3],['04-art',428,246,206,263,5],['05-lantern',275,0,197,267,14],['06-tree',25,218,250,324,8],['07-rug',8,686,622,209,3],['08-sofa',46,508,592,184,10],['09-cushions',125,524,165,78,13],['10-armchair',12,636,252,234,16],['11-table',288,622,288,190,15],['12-vase',434,530,108,164,18],['13-side',220,748,88,144,19],['14-materials',58,968,445,84,4]];
+    const parts = MB.map(([nm, x, y, w, hh, z], j) => {
+      const d = 0.4 + 0.5 * j, zz = (0.4 + z * 0.08) * 7.36 * S;
+      return e('div', { key: nm, style: { position: 'absolute', left: (ox + x * S) + 'px', top: (oy + y * S) + 'px', width: (w * S) + 'px', height: (hh * S) + 'px', backgroundImage: `url(assets/mb/${nm}.png)`, backgroundSize: '100% 100%', '--z': zz + 'px', '--fz': ((24 + z * 1.1) * 7.36 * S) + 'px', '--fz2': ((9 + z * 0.5) * 7.36 * S) + 'px', transformOrigin: '50% 100%', transform: `translateZ(${zz}px)`, animation: `lsnPopIn 1.5s cubic-bezier(.3,.7,.3,1) ${d}s both`, filter: `drop-shadow(0 ${(3 * S).toFixed(1)}px ${(5 * S).toFixed(1)}px rgba(50,28,15,.28))` } });
+    });
+    this._psk = k;
+    this._ps = e(React.Fragment, { key: k }, parts);
+    return this._ps;
+  }
+
+  bgFx() {
+    if (!this._fx) this._fx = React.createElement(React.Fragment, null, BG_FX.map((s, i) => React.createElement('div', { key: i, style: { position: 'absolute', ...s } })));
+    return this._fx;
+  }
+
+  renderVals() {
+    const P = this.build();
+    const { cur, hot, delays, zoom, openCat, filterOpen } = this.state;
+    const goP = lp => () => this.go(this.curOf(lp));
+    const projWithGo = c => c.projects.map(p => ({ ...p, go: goP(p.leftPage) }));
+    const catsGo = this.cats.map(c => ({ ...c, projects: projWithGo(c) }));
+
+    const pages = P.map((pg, p) => {
+      const k = p >> 1, flipped = k < cur, A = flipped ? -180 : 0, back = p % 2 === 1;
+      const cat = pg.cat ? catsGo.find(c => c.id === pg.cat.id) : null;
+      const darkFoot = pg.type === 'DivL' || pg.type === 'Back';
+      const foot = !!pg.sec || pg.type === 'DivL';
+      const near = Math.abs(k - cur) <= 2 || this.seen.has(p);
+      if (near) this.seen.add(p);
+      return {
+        ...pg, cat, ['is' + pg.type]: true,
+        heroBg: pg.pr ? (near ? "#E3D6C8 url('" + pg.pr.hero.file + "') center/cover no-repeat" : '#E3D6C8') : '',
+        items: (pg.items || []).map(g => ({ ...g, bg: near ? "url('" + g.file + "')" : 'none' })),
+        plist: cat && pg.type === 'DivR' ? cat.projects.map(q => ({ ...q, tb: near ? q.thumb : '#E3D6C8' })) : [],
+        strip: pg.pr && pg.type === 'ProjL' ? pg.pr.gal.map(g => ({ tb: near ? (g.plano ? '#FFFFFF' : '#E3D6C8') + " url('" + g.file + "') center/" + g.size + ' no-repeat' : '#E3D6C8' })) : [],
+        goGal: pg.pr ? () => this.go(this.curOf(pg.pr.leftPage + 2)) : null,
+        tf: back ? `rotateY(${A}deg) translateX(100%) rotateY(180deg)` : `rotateY(${A}deg)`,
+        z: (hot[k] != null ? hot[k] : (flipped ? k : N - k) + 10) * 2 + ((back === flipped) ? 1 : 0),
+        delay: (delays[k] || 0) + 'ms',
+        bg: pg.type === 'Cover' ? '#8E4128' : pg.type === 'Photo' ? '#D8BBA2' : pg.type === 'DivL' ? pg.cat.bg : pg.type === 'Back' ? '#8E4128' : pg.type === 'ContactR' ? '#5A3424' : pg.type === 'ProjR' ? '#E9DED1' : '#F5EFE6',
+        shade: back
+          ? 'linear-gradient(270deg, rgba(42,31,26,.22) 0%, rgba(42,31,26,.07) 3.5%, rgba(42,31,26,0) 9%)'
+          : 'linear-gradient(90deg, rgba(42,31,26,.2) 0%, rgba(42,31,26,.06) 3.5%, rgba(42,31,26,0) 9%)',
+        foot, sec: pg.sec || (cat && cat.name) || '', num: pad(p),
+        footColor: darkFoot ? (pg.cat ? pg.cat.fg : '#F5EFE6') : '#8A7466'
+      };
+    });
+
+    let activeCat = null;
+    this.cats.forEach((c, i) => { const s = this.curOf(c.leftPage), e = i < this.cats.length - 1 ? this.curOf(this.cats[i + 1].leftPage) : this.curOf(this.contactLeft); if (cur >= s && cur < e) activeCat = c.id; });
+    const contactCur = this.curOf(this.contactLeft), PF = this.D ? this.D.perfil : null;
+    const catsNav = catsGo.map(c => ({
+      ...c, open: openCat === c.id, sign: openCat === c.id ? '−' : '+',
+      rowBg: activeCat === c.id ? '#EDE3D7' : 'transparent',
+      toggle: () => { this.setState({ openCat: c.id, help: false }); this.go(this.curOf(c.leftPage), 'L', true); }
+    }));
+    const toc = [
+      { n: '00', name: 'Perfil', page: '01', go: () => this.go(1), items: [{ name: 'Sobre mí', page: '02', go: () => this.go(1) }, { name: 'Formación y competencias', page: '03', go: () => this.go(2) }] },
+      ...catsGo.map(c => ({ n: c.n, name: c.name, page: pad(c.leftPage), go: goP(c.leftPage), items: c.projects })),
+      { n: pad(catsGo.length + 1), name: 'Contacto', page: pad(this.contactLeft), go: () => this.go(contactCur), items: [] }
+    ];
+    const secs = [{ n: '00', label: 'Perfil', cur: 1 }, ...catsGo.map(c => ({ n: c.n, label: c.short, cur: this.curOf(c.leftPage) })), { n: pad(catsGo.length + 1), label: 'Contacto', cur: contactCur }];
+    let act = -1; secs.forEach((s, i) => { if (cur >= s.cur && cur < N) act = i; });
+    const chips = secs.map((s, i) => ({ ...s, go: () => this.go(s.cur), bg: i === act ? '#A9512F' : 'transparent', fg: i === act ? '#F5EFE6' : '#2A1F1A', line: i === act ? '#2A1F1A' : 'transparent' }));
+
+    return {
+      pages, toc, catsNav, chips,
+      perfilTitulo: PF ? PF.titulo : '', bio: PF ? PF.bio : '', edu: PF ? PF.educacion : [],
+      comp: PF ? Object.keys(PF.competencias).map(k => ({ k, items: PF.competencias[k] })) : [],
+      bw: this.state.bw, bh: this.state.bh,
+      bookTf: this.state.mob ? (cur === 0 ? 'translateX(-25%) rotateX(42deg) rotateZ(-14deg) scale(.95)' : cur === N ? 'translateX(25%)' : this.state.side === 'R' ? 'translateX(-25%)' : 'translateX(25%)') : cur === 0 ? 'translateX(-25%) rotateX(48deg) rotateZ(-20deg) scale(1.18)' : cur === N ? 'translateX(25%) rotateX(14deg) rotateZ(4deg) scale(.88)' : 'none',
+      leftOp: cur > 0 && cur < N ? 1 : 0, rightOp: cur > 0 && cur < N ? 1 : 0,
+      zoomTf: zoom ? `translate(${zoom.tx + this.state.pan.x}px, ${zoom.ty + this.state.pan.y}px) scale(${zoom.s})` : 'none',
+      zoomTrans: this.state.dragging ? 'none' : 'transform .95s cubic-bezier(.7,0,.2,1)',
+      zoomCursor: this.state.dragging ? 'grabbing' : 'grab', dragStart: this.dragStart,
+      bgFx: this.bgFx(), popScene: this.popScene(), bookRef: this.bookRef, frameRef: this.frameRef,
+      mfx: (this.state.mf || {}).x || 0, mfy: (this.state.mf || {}).y || 0, mfw: (this.state.mf || {}).w || 0, mfh: (this.state.mf || {}).h || 0,
+      popOp: cur === 0 ? 1 : 0, thick: Math.round(this.state.bh * 0.05),
+      groundShadow: `0 ${Math.round(this.state.bh*.02)}px ${Math.round(this.state.bh*.04)}px rgba(45,25,12,.45), 0 ${Math.round(this.state.bh*.08)}px ${Math.round(this.state.bh*.16)}px rgba(45,25,12,.35)`,
+      ...(m => ({
+        stagePad: m ? '70px 0 150px' : '76px 0 88px',
+        coverTitle: m ? '9cqh' : '10.5cqh', coverCols: m ? '1fr' : '1fr 60%', coverRows: m ? '1fr auto' : 'none', coverTextOrder: m ? 2 : 0, photoCols: m ? '1fr' : '1fr 44%', photoRows: m ? 'auto 1fr' : 'none',
+        photoName: m ? '7cqh' : '10.5cqh', bioCols: m ? '1fr' : '1.3fr 1fr', divNum: m ? '30cqh' : '46cqh',
+        divCols: m ? '13cqh 1fr' : '22cqh 1fr auto', metaCols: 'repeat(auto-fit,minmax(16cqh,1fr))', divThumbH: m ? '10cqh' : '14cqh', projName: m ? '4.8cqh' : '6.2cqh', descSize: m ? '1.7cqh' : '1.85cqh', bioSize: m ? '1.65cqh' : '1.8cqh', emailSize: m ? '2.6cqh' : '3.6cqh',
+        brandDisplay: m ? 'none' : 'flex', deskInline: m ? 'none' : 'inline-block', chipsDisplay: m || this.state.chipsHide ? 'none' : 'flex',
+        ctaLabel: m ? 'Contacto' : 'Inicia tu proyecto'
+      }))(this.state.mob), cornerBottom: this.state.narrow ? '96px' : '22px', waLabelDisplay: this.state.narrow ? 'none' : 'flex', waPadR: this.state.narrow ? '10px' : '18px',
+      waLink: WA, mailLink: MAIL,
+      helpOpen: this.state.help && !zoom, helpClosed: !this.state.help && !zoom,
+      closeHelp: this.closeHelp, openHelp: () => this.setState({ help: true }),
+      helpRows: [
+        { k: 'Clic', t: 'Haz clic en la portada para abrir el libro.' },
+        this.state.mob ? { k: '← →', t: 'Desliza el dedo a los lados o usa las flechas de abajo para pasar las páginas.' } : { k: '↕ ← →', t: 'Desplázate con la rueda o usa las flechas para pasar las hojas.' },
+        this.state.mob ? { k: 'Zoom', t: 'Toca una imagen o dato para ampliarlo. Arrástralo con el dedo para moverte y toca «Salir» para volver.' } : { k: 'Zoom', t: 'Clic en una imagen o dato para ampliarlo. Mantén el clic y arrastra para moverte; Esc para salir.' },
+        { k: '▦', t: 'Usa «Proyectos» (arriba a la izquierda) para ir a una categoría o proyecto.' }
+      ],
+      filterSign: filterOpen ? '−' : '+',
+      zoomOrigin: this.state.zo, zoomed: !!zoom, zoomLabel: zoom ? zoom.label : '', unzoom: this.unzoom, zoom: this.zoom,
+      openBook: e => { e.stopPropagation(); this.go(1); },
+      filterOpen, toggleFilter: () => this.setState({ filterOpen: !filterOpen, openCat: openCat || activeCat || (this.cats[0] || {}).id }),
+      activeCatName: activeCat ? catsGo.find(c => c.id === activeCat).name : 'Todos',
+      goContact: () => this.go(contactCur), next: this.next, prev: this.prev,
+      counter: this.state.mob ? (cur === 0 ? 'Toca la portada' : `${pad(this.pos())} / ${2 * N - 1}`) : cur === 0 ? 'Portada · clic para abrir' : cur === N ? 'Contraportada' : `${pad(2 * cur - 1)}–${pad(2 * cur)} / ${2 * N - 1}`
+    };
+  }
+}
+</script>
+</body>
+</html>
