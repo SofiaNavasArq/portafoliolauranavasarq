@@ -1,0 +1,709 @@
+{
+  "perfil": {
+    "nombre": "Laura Sofía Navas Castañeda",
+    "titulo": "Arquitecta · Arquitectura y Diseño Interior",
+    "email": "laura.sofianavas@gmail.com",
+    "telefono": "311 877 8973",
+    "linkedin": "Laura Sofia Navas",
+    "bio": "Arquitecta con sólida trayectoria en el desarrollo de proyectos de interiorismo, especificación técnica de acabados y gestión comercial de alto nivel. Con experiencia comprobada en asesoría consultiva B2B/B2C, conceptualización de espacios tridimensionales y articulación de requerimientos con clientes, proveedores y equipos interdisciplinarios. Destacada por un riguroso dominio de herramientas digitales de vanguardia para la visualización fotorrealista y por una sólida capacidad para liderar proyectos desde la fase creativa hasta su ejecución logística y presupuestal. Interesada en aportar visión estratégica, sensibilidad estética y rigor técnico en la estructuración y coordinación de proyectos de arquitectura y diseño interior de alta gama.",
+    "retrato": {
+      "file": "00_perfil/laura-navas_retrato.png",
+      "width": 905,
+      "height": 1113,
+      "size_kb": 1212,
+      "type": "retrato",
+      "alt": "Retrato de Laura Navas con fondo transparente (PNG con alfa)"
+    },
+    "educacion": [
+      {
+        "periodo": "2019 - 2024",
+        "titulo": "Profesional en Arquitectura",
+        "institucion": "Facultad de Artes y Diseño, Universidad Jorge Tadeo Lozano (Programa de Arquitectura y Hábitat)"
+      },
+      {
+        "periodo": "2023",
+        "titulo": "Introducción al Diseño Interior",
+        "institucion": "Conocimientos fundamentales para el diseño interior"
+      },
+      {
+        "periodo": "2024",
+        "titulo": "Generación de ideas innovadoras y design thinking",
+        "institucion": "Instituto SENA, Colombia"
+      }
+    ],
+    "competencias": {
+      "Modelado y BIM": [
+        "AutoCAD",
+        "Revit",
+        "Sketchup",
+        "Rhinoceros"
+      ],
+      "Renderizado y visualización": [
+        "Enscape",
+        "Lumion",
+        "Twinmotion",
+        "D5",
+        "Blender",
+        "Grasshopper"
+      ],
+      "Postproducción y gráfica": [
+        "Photoshop",
+        "Illustrator",
+        "After Effects",
+        "Premiere"
+      ]
+    }
+  },
+  "global": [
+    {
+      "file": "00_global/fondos/portada-textura-marmol.jpg",
+      "width": 1600,
+      "height": 2400,
+      "size_kb": 217,
+      "type": "fondo",
+      "alt": "Textura de mármol/ónix beige usada como fondo de portada",
+      "pdf_page": 1,
+      "usar_como": "fondo/decoración, no como foto de proyecto"
+    },
+    {
+      "file": "00_global/fondos/portada-render-mesa-redonda.jpg",
+      "width": 1470,
+      "height": 1837,
+      "size_kb": 371,
+      "type": "portada",
+      "alt": "Render de mesa redonda con sillas y lámparas colgantes (portada)",
+      "pdf_page": 1,
+      "usar_como": "fondo/decoración, no como foto de proyecto"
+    },
+    {
+      "file": "00_global/fondos/sobre-mi-sala-vacia.jpg",
+      "width": 2868,
+      "height": 1613,
+      "size_kb": 533,
+      "type": "fondo",
+      "alt": "Render de sala vacía con piso de madera y sillón, fondo de la sección \"Hola! soy Laura\"",
+      "pdf_page": 2,
+      "usar_como": "fondo/decoración, no como foto de proyecto"
+    },
+    {
+      "file": "00_global/fondos/educacion-interior-lampara.jpg",
+      "width": 3456,
+      "height": 2304,
+      "size_kb": 1018,
+      "type": "fondo",
+      "alt": "Render de interior con lámpara de cristal y plantas (sección Educación y Competencias)",
+      "pdf_page": 3,
+      "usar_como": "fondo/decoración, no como foto de proyecto"
+    },
+    {
+      "file": "00_global/divisores/institucional-lobby.jpg",
+      "width": 1536,
+      "height": 1024,
+      "size_kb": 331,
+      "type": "divisor",
+      "alt": "Render de lobby con cielo raso en madera (divisor Institucional)",
+      "pdf_page": 15,
+      "usar_como": "fondo/decoración, no como foto de proyecto"
+    },
+    {
+      "file": "00_global/divisores/comercial-local-nombre.jpg",
+      "width": 1536,
+      "height": 1024,
+      "size_kb": 339,
+      "type": "divisor",
+      "alt": "Render de local comercial genérico con letrero \"NOMBRE\" (divisor Comercial). Ojo: lleva texto placeholder",
+      "pdf_page": 22,
+      "usar_como": "fondo/decoración, no como foto de proyecto"
+    },
+    {
+      "file": "00_global/divisores/financiero-recepcion-nombre.jpg",
+      "width": 1536,
+      "height": 1024,
+      "size_kb": 340,
+      "type": "divisor",
+      "alt": "Render de recepción genérica con letrero \"NOMBRE\" (divisor Financiero). Ojo: lleva texto placeholder",
+      "pdf_page": 29,
+      "usar_como": "fondo/decoración, no como foto de proyecto"
+    },
+    {
+      "file": "00_global/cierre/conclusion-disenar-es-transformar.jpg",
+      "width": 1536,
+      "height": 1024,
+      "size_kb": 273,
+      "type": "cierre",
+      "alt": "Página de cierre ya diseñada (texto horneado en la imagen: \"Diseñar es transformar ideas en espacios\", contacto). Úsese solo como referencia o fondo",
+      "pdf_page": 36,
+      "usar_como": "fondo/decoración, no como foto de proyecto"
+    }
+  ],
+  "proyectos": [
+    {
+      "id": "casa-marazul",
+      "nombre": "Casa Marazul",
+      "ubicacion": "Cartagena",
+      "categoria": "Residencial",
+      "tipo": "Diseño interior",
+      "carpeta": "01_residencial/01_casa-marazul",
+      "descripcion": "Proyecto de diseño interior enfocado en la selección y combinación de materiales, revestimientos y acabados para una vivienda de estilo contemporáneo. La propuesta abarca las zonas sociales y privadas, cocina, baños, cuarto de ropas y áreas exteriores, incluyendo la piscina. A través de la visualización 3D, se exploraron diferentes paletas de materiales, texturas y ambientes, buscando una estética equilibrada, cálida y elegante, en armonía con la arquitectura de la vivienda.",
+      "pdf_paginas": [
+        6,
+        8
+      ],
+      "hero": {
+        "file": "01_residencial/01_casa-marazul/render/01_piscina-fachada.jpg",
+        "width": 1573,
+        "height": 1000,
+        "size_kb": 375,
+        "type": "render",
+        "role": "hero",
+        "alt": "Render exterior: piscina y volúmenes blancos de la casa, cielo despejado",
+        "pdf_page": 7
+      },
+      "renders": [
+        {
+          "file": "01_residencial/01_casa-marazul/render/01_piscina-fachada.jpg",
+          "width": 1573,
+          "height": 1000,
+          "size_kb": 375,
+          "type": "render",
+          "role": "hero",
+          "alt": "Render exterior: piscina y volúmenes blancos de la casa, cielo despejado",
+          "pdf_page": 7
+        },
+        {
+          "file": "01_residencial/01_casa-marazul/render/02_sala-social.jpg",
+          "width": 1096,
+          "height": 704,
+          "size_kb": 127,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de sala social amplia con ventanales y lámpara dorada",
+          "pdf_page": 8
+        },
+        {
+          "file": "01_residencial/01_casa-marazul/render/03_bano.jpg",
+          "width": 1162,
+          "height": 867,
+          "size_kb": 207,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de baño con lavamanos en piedra, ducha y revestimiento en tonos tierra",
+          "pdf_page": 8
+        },
+        {
+          "file": "01_residencial/01_casa-marazul/render/04_sala-cocina-comedor.jpg",
+          "width": 1536,
+          "height": 1024,
+          "size_kb": 326,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de sala, cocina y comedor integrados con vista a jardín (usado en la página de contenido del PDF)",
+          "pdf_page": 4
+        },
+        {
+          "file": "01_residencial/01_casa-marazul/render/05_cocina-comedor.jpg",
+          "width": 1536,
+          "height": 1024,
+          "size_kb": 331,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de cocina con barra, comedor y sala abiertos al exterior (usado en el divisor Residencial del PDF)",
+          "pdf_page": 5
+        }
+      ],
+      "planos": [
+        {
+          "file": "01_residencial/01_casa-marazul/plano/planta-general.png",
+          "width": 805,
+          "height": 405,
+          "size_kb": 221,
+          "type": "plano",
+          "role": "plano",
+          "alt": "Planta arquitectónica general de la vivienda y zonas exteriores",
+          "pdf_page": 8
+        }
+      ]
+    },
+    {
+      "id": "casa-gaia",
+      "nombre": "Casa Gaia",
+      "ubicacion": "Barichara",
+      "categoria": "Residencial",
+      "tipo": "Diseño interior residencial",
+      "carpeta": "01_residencial/02_casa-gaia",
+      "descripcion": "Proyecto residencial que integra una estética contemporánea con elementos tradicionales de la arquitectura regional. La propuesta combina materiales naturales, texturas cálidas, tonos tierra y detalles en madera, creando espacios acogedores que dialogan con el entorno y resaltan la esencia del lugar La propuesta busca crear una experiencia habitable que combine confort, identidad y sensibilidad estética, evocando la calidez y el encanto arquitectónico de Barichara.",
+      "pdf_paginas": [
+        9,
+        11
+      ],
+      "hero": {
+        "file": "01_residencial/02_casa-gaia/render/01_terraza-horno.jpg",
+        "width": 1458,
+        "height": 1079,
+        "size_kb": 370,
+        "type": "render",
+        "role": "hero",
+        "alt": "Render de terraza con puerta azul, horno de leña y comedor en madera al atardecer",
+        "pdf_page": 10
+      },
+      "renders": [
+        {
+          "file": "01_residencial/02_casa-gaia/render/01_terraza-horno.jpg",
+          "width": 1458,
+          "height": 1079,
+          "size_kb": 370,
+          "type": "render",
+          "role": "hero",
+          "alt": "Render de terraza con puerta azul, horno de leña y comedor en madera al atardecer",
+          "pdf_page": 10
+        },
+        {
+          "file": "01_residencial/02_casa-gaia/render/02_sala-doble-altura.jpg",
+          "width": 1288,
+          "height": 782,
+          "size_kb": 225,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de sala de doble altura con cocina y comedor, madera y tonos tierra",
+          "pdf_page": 11
+        },
+        {
+          "file": "01_residencial/02_casa-gaia/render/03_habitacion-persianas-azules.jpg",
+          "width": 1085,
+          "height": 711,
+          "size_kb": 195,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de habitación con techo en madera y persianas azules",
+          "pdf_page": 11
+        }
+      ],
+      "planos": [
+        {
+          "file": "01_residencial/02_casa-gaia/plano/plantas-implantacion.png",
+          "width": 827,
+          "height": 636,
+          "size_kb": 290,
+          "type": "plano",
+          "role": "plano",
+          "alt": "Plantas arquitectónicas, implantación y cuadro de áreas",
+          "pdf_page": 11
+        }
+      ]
+    },
+    {
+      "id": "biblioteca-residencial",
+      "nombre": "Biblioteca Residencial",
+      "ubicacion": "La Calera",
+      "categoria": "Residencial",
+      "tipo": "Renovación y ampliación de terraza",
+      "carpeta": "01_residencial/03_biblioteca-residencial",
+      "descripcion": "El proyecto consistió en la renovación y ampliación de una terraza existente para transformarla en una biblioteca privada, concebida como un espacio de lectura, trabajo y descanso integrado a la vivienda. La intervención buscó aprovechar el potencial del área mediante una nueva configuración espacial que favorece la iluminación natural, las visuales hacia el entorno exterior y la conexión entre interior y paisaje. El diseño incorpora mobiliario de líneas contemporáneas, estanterías integradas, una zona de lectura y un área de trabajo, creando un ambiente funcional, cálido y confortable.",
+      "pdf_paginas": [
+        12,
+        14
+      ],
+      "hero": {
+        "file": "01_residencial/03_biblioteca-residencial/render/01_biblioteca-general.jpg",
+        "width": 1407,
+        "height": 1118,
+        "size_kb": 302,
+        "type": "render",
+        "role": "hero",
+        "alt": "Render de biblioteca privada con estanterías integradas, zona de lectura y escritorio",
+        "pdf_page": 13
+      },
+      "renders": [
+        {
+          "file": "01_residencial/03_biblioteca-residencial/render/01_biblioteca-general.jpg",
+          "width": 1407,
+          "height": 1118,
+          "size_kb": 302,
+          "type": "render",
+          "role": "hero",
+          "alt": "Render de biblioteca privada con estanterías integradas, zona de lectura y escritorio",
+          "pdf_page": 13
+        },
+        {
+          "file": "01_residencial/03_biblioteca-residencial/render/02_zona-lectura.jpg",
+          "width": 985,
+          "height": 784,
+          "size_kb": 162,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de zona de lectura con sofá curvo y estanterías",
+          "pdf_page": 14
+        },
+        {
+          "file": "01_residencial/03_biblioteca-residencial/render/03_zona-trabajo.jpg",
+          "width": 1266,
+          "height": 1008,
+          "size_kb": 235,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de zona de trabajo con claraboya y ventanal al paisaje",
+          "pdf_page": 14
+        }
+      ],
+      "planos": [
+        {
+          "file": "01_residencial/03_biblioteca-residencial/plano/planta-detalle.png",
+          "width": 767,
+          "height": 421,
+          "size_kb": 45,
+          "type": "plano",
+          "role": "plano",
+          "alt": "Planta técnica de la intervención",
+          "pdf_page": 14
+        }
+      ]
+    },
+    {
+      "id": "unidad-cuidado-animal",
+      "nombre": "Unidad de Cuidado Animal",
+      "ubicacion": "Engativá, Bogotá",
+      "categoria": "Institucional",
+      "tipo": "Renovación arquitectónica",
+      "carpeta": "02_institucional/01_unidad-cuidado-animal",
+      "descripcion": "Proyecto de renovación arquitectónica de las instalaciones de la Unidad de Cuidado Animal de Engativá, enfocado en el mejoramiento de las condiciones espaciales y funcionales de las áreas destinadas al alojamiento de perros. La intervención contempló la remodelación de las perreras mediante superficies cerámicas de fácil limpieza, cerramientos metálicos y una configuración espacial que favorece la organización, la ventilación y el ingreso de iluminación natural. La selección de materiales resistentes y de bajo mantenimiento responde a las necesidades de higiene, durabilidad y uso intensivo propias de este tipo de equipamientos.",
+      "pdf_paginas": [
+        16,
+        18
+      ],
+      "hero": {
+        "file": "02_institucional/01_unidad-cuidado-animal/render/01_pasillo-perreras.jpg",
+        "width": 1412,
+        "height": 1114,
+        "size_kb": 371,
+        "type": "render",
+        "role": "hero",
+        "alt": "Render de pasillo central de perreras con cerramientos metálicos y estructura verde",
+        "pdf_page": 17
+      },
+      "renders": [
+        {
+          "file": "02_institucional/01_unidad-cuidado-animal/render/01_pasillo-perreras.jpg",
+          "width": 1412,
+          "height": 1114,
+          "size_kb": 371,
+          "type": "render",
+          "role": "hero",
+          "alt": "Render de pasillo central de perreras con cerramientos metálicos y estructura verde",
+          "pdf_page": 17
+        },
+        {
+          "file": "02_institucional/01_unidad-cuidado-animal/render/02_perreras-frente.jpg",
+          "width": 1278,
+          "height": 999,
+          "size_kb": 312,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de perreras con perros, cerramientos metálicos y luz natural",
+          "pdf_page": 18
+        },
+        {
+          "file": "02_institucional/01_unidad-cuidado-animal/render/03_interior-perrera.jpg",
+          "width": 1178,
+          "height": 856,
+          "size_kb": 96,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de interior de perrera con cerámica clara y un perro pastor alemán",
+          "pdf_page": 18
+        }
+      ],
+      "planos": []
+    },
+    {
+      "id": "banos-institucionales",
+      "nombre": "Remodelación Baños Institucionales",
+      "ubicacion": "",
+      "categoria": "Institucional",
+      "tipo": "Renovación de baños",
+      "carpeta": "02_institucional/02_banos-institucionales",
+      "descripcion": "Proyecto de renovación de baños institucionales orientado al mejoramiento de las condiciones funcionales, estéticas y de mantenimiento de los espacios sanitarios. La propuesta contempla la actualización de acabados mediante revestimientos cerámicos en tonos grises, divisiones sanitarias de líneas limpias y mobiliario de lavamanos de diseño contemporáneo. La selección de materiales resistentes y de fácil limpieza responde a las exigencias de uso frecuente propias de este tipo de espacios.",
+      "pdf_paginas": [
+        19,
+        21
+      ],
+      "hero": {
+        "file": "02_institucional/02_banos-institucionales/render/01_lavamanos-cubiculos.jpg",
+        "width": 1503,
+        "height": 1046,
+        "size_kb": 166,
+        "type": "render",
+        "role": "hero",
+        "alt": "Render de baño institucional con lavamanos corrido y divisiones sanitarias",
+        "pdf_page": 20
+      },
+      "renders": [
+        {
+          "file": "02_institucional/02_banos-institucionales/render/01_lavamanos-cubiculos.jpg",
+          "width": 1503,
+          "height": 1046,
+          "size_kb": 166,
+          "type": "render",
+          "role": "hero",
+          "alt": "Render de baño institucional con lavamanos corrido y divisiones sanitarias",
+          "pdf_page": 20
+        },
+        {
+          "file": "02_institucional/02_banos-institucionales/render/02_divisiones-sanitarias.jpg",
+          "width": 1593,
+          "height": 801,
+          "size_kb": 182,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de cubículos sanitarios con revestimiento cerámico gris",
+          "pdf_page": 21
+        },
+        {
+          "file": "02_institucional/02_banos-institucionales/render/03_area-lavamanos.jpg",
+          "width": 1200,
+          "height": 840,
+          "size_kb": 160,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de zona de lavamanos y cubículo con revestimiento gris",
+          "pdf_page": 21
+        }
+      ],
+      "planos": [
+        {
+          "file": "02_institucional/02_banos-institucionales/plano/planta-bano-mujeres.png",
+          "width": 567,
+          "height": 376,
+          "size_kb": 112,
+          "type": "plano",
+          "role": "plano",
+          "alt": "Planta tipo del baño de mujeres con medidas",
+          "pdf_page": 21
+        }
+      ]
+    },
+    {
+      "id": "gimnasio-reps",
+      "nombre": "Gimnasio REPS",
+      "ubicacion": "",
+      "categoria": "Comercial",
+      "tipo": "Diseño interior",
+      "carpeta": "03_comercial/01_gimnasio-reps",
+      "descripcion": "Proyecto de diseño interior para un gimnasio, enfocado en la creación de un ambiente contemporáneo, dinámico y funcional, que integra las áreas de entrenamiento con espacios complementarios de atención, exhibición y consumo. La propuesta se desarrolla a partir de una paleta de materiales y colores que combina tonos neutros, acabados tipo madera y acentos en púrpura, generando una identidad visual distintiva y coherente con el carácter deportivo del establecimiento. La selección de revestimientos, mobiliario, iluminación suspendida y elementos gráficos contribuye a consolidar una atmósfera moderna, energética y atractiva para los usuarios.",
+      "pdf_paginas": [
+        23,
+        25
+      ],
+      "hero": {
+        "file": "03_comercial/01_gimnasio-reps/render/01_zona-entrenamiento.jpg",
+        "width": 1581,
+        "height": 995,
+        "size_kb": 286,
+        "type": "render",
+        "role": "hero",
+        "alt": "Render de zona de entrenamiento con equipos morados y acabados tipo madera",
+        "pdf_page": 24
+      },
+      "renders": [
+        {
+          "file": "03_comercial/01_gimnasio-reps/render/01_zona-entrenamiento.jpg",
+          "width": 1581,
+          "height": 995,
+          "size_kb": 286,
+          "type": "render",
+          "role": "hero",
+          "alt": "Render de zona de entrenamiento con equipos morados y acabados tipo madera",
+          "pdf_page": 24
+        },
+        {
+          "file": "03_comercial/01_gimnasio-reps/render/02_recepcion-tienda.jpg",
+          "width": 1422,
+          "height": 897,
+          "size_kb": 281,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de área de atención y exhibición con gráficos \"Your fitness journey starts here\"",
+          "pdf_page": 25
+        },
+        {
+          "file": "03_comercial/01_gimnasio-reps/render/03_banos-marmol-negro.jpg",
+          "width": 1103,
+          "height": 914,
+          "size_kb": 209,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de baños con mármol negro, espejos ovalados e iluminación LED",
+          "pdf_page": 25
+        }
+      ],
+      "planos": []
+    },
+    {
+      "id": "lisan-motors",
+      "nombre": "Concesionario Lisan Motors",
+      "ubicacion": "",
+      "categoria": "Comercial",
+      "tipo": "Remodelación arquitectónica",
+      "carpeta": "03_comercial/02_concesionario-lisan-motors",
+      "descripcion": "Propuesta de remodelación arquitectónica para el concesionario Lisan Motors, enfocada en la modernización de la fachada y la renovación de los espacios interiores. El diseño incorpora una envolvente contemporánea, amplias superficies acristaladas y acentos en rojo que refuerzan la identidad corporativa, integrando iluminación arquitectónica y espacios de exhibición para taxis.",
+      "pdf_paginas": [
+        26,
+        28
+      ],
+      "hero": {
+        "file": "03_comercial/02_concesionario-lisan-motors/render/01_fachada-esquina.jpg",
+        "width": 1606,
+        "height": 979,
+        "size_kb": 303,
+        "type": "render",
+        "role": "hero",
+        "alt": "Render de fachada del concesionario con acento rojo y vidrio al atardecer",
+        "pdf_page": 27
+      },
+      "renders": [
+        {
+          "file": "03_comercial/02_concesionario-lisan-motors/render/01_fachada-esquina.jpg",
+          "width": 1606,
+          "height": 979,
+          "size_kb": 303,
+          "type": "render",
+          "role": "hero",
+          "alt": "Render de fachada del concesionario con acento rojo y vidrio al atardecer",
+          "pdf_page": 27
+        },
+        {
+          "file": "03_comercial/02_concesionario-lisan-motors/render/02_sala-exhibicion.jpg",
+          "width": 1232,
+          "height": 817,
+          "size_kb": 213,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de sala de exhibición con taxis y estructura roja",
+          "pdf_page": 28
+        },
+        {
+          "file": "03_comercial/02_concesionario-lisan-motors/render/03_fachada-panoramica.jpg",
+          "width": 2171,
+          "height": 724,
+          "size_kb": 298,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render panorámico de la fachada (formato muy ancho 3:1)",
+          "pdf_page": 28
+        }
+      ],
+      "planos": []
+    },
+    {
+      "id": "banco-finandina",
+      "nombre": "Banco Finandina - Sala de Atención Av Chile",
+      "ubicacion": "Bogotá",
+      "categoria": "Sector financiero e inmobiliario",
+      "tipo": "Remodelación integral",
+      "carpeta": "04_financiero-inmobiliario/01_banco-finandina-av-chile",
+      "descripcion": "Proyecto de remodelación integral de la sucursal de Banco Finandina, enfocado en la optimización de la distribución espacial y la renovación de la imagen interior y exterior. Mi aporte profesional comprendió el levantamiento arquitectónico, la propuesta de redistribución de los espacios, la selección de acabados y el desarrollo de la visualización 3D. La propuesta integra funcionalidad, identidad corporativa y diseño contemporáneo para crear ambientes acogedores, eficientes y acordes con las necesidades de atención al público",
+      "pdf_paginas": [
+        30,
+        32
+      ],
+      "hero": {
+        "file": "04_financiero-inmobiliario/01_banco-finandina-av-chile/render/01_exterior-sucursal.jpg",
+        "width": 1663,
+        "height": 946,
+        "size_kb": 461,
+        "type": "render",
+        "role": "hero",
+        "alt": "Render exterior de la sucursal en entorno urbano con árboles",
+        "pdf_page": 31
+      },
+      "renders": [
+        {
+          "file": "04_financiero-inmobiliario/01_banco-finandina-av-chile/render/01_exterior-sucursal.jpg",
+          "width": 1663,
+          "height": 946,
+          "size_kb": 461,
+          "type": "render",
+          "role": "hero",
+          "alt": "Render exterior de la sucursal en entorno urbano con árboles",
+          "pdf_page": 31
+        },
+        {
+          "file": "04_financiero-inmobiliario/01_banco-finandina-av-chile/render/02_sala-atencion-asesores.jpg",
+          "width": 1195,
+          "height": 844,
+          "size_kb": 210,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de sala de atención con módulos de asesores y publicidad",
+          "pdf_page": 32
+        },
+        {
+          "file": "04_financiero-inmobiliario/01_banco-finandina-av-chile/render/03_sala-espera.jpg",
+          "width": 1196,
+          "height": 843,
+          "size_kb": 173,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de sala de espera con puffs rojos y grises y público",
+          "pdf_page": 32
+        }
+      ],
+      "planos": []
+    },
+    {
+      "id": "prestauto-bima",
+      "nombre": "Prestauto - Bima",
+      "ubicacion": "",
+      "categoria": "Sector financiero e inmobiliario",
+      "tipo": "Adecuación y ampliación",
+      "carpeta": "04_financiero-inmobiliario/02_prestauto-bima",
+      "descripcion": "Proyecto de adecuación y ampliación de las instalaciones existentes de PRESTAUTO, orientado a renovar la imagen corporativa y optimizar los espacios interiores. Mi aporte profesional se centró en la selección de acabados y el desarrollo de la presentación visual arquitectónica mediante modelado y renders 3D, buscando una propuesta contemporánea, funcional y coherente con la identidad de la empresa.",
+      "pdf_paginas": [
+        33,
+        35
+      ],
+      "hero": {
+        "file": "04_financiero-inmobiliario/02_prestauto-bima/render/01_fachada-verde.jpg",
+        "width": 1689,
+        "height": 931,
+        "size_kb": 342,
+        "type": "render",
+        "role": "hero",
+        "alt": "Render de fachada verde PrestAuto con acceso peatonal en madera",
+        "pdf_page": 34
+      },
+      "renders": [
+        {
+          "file": "04_financiero-inmobiliario/02_prestauto-bima/render/01_fachada-verde.jpg",
+          "width": 1689,
+          "height": 931,
+          "size_kb": 342,
+          "type": "render",
+          "role": "hero",
+          "alt": "Render de fachada verde PrestAuto con acceso peatonal en madera",
+          "pdf_page": 34
+        },
+        {
+          "file": "04_financiero-inmobiliario/02_prestauto-bima/render/02_oficina-interior.jpg",
+          "width": 1456,
+          "height": 875,
+          "size_kb": 222,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render de interior de oficina con escritorios y vista a la fachada",
+          "pdf_page": 35
+        },
+        {
+          "file": "04_financiero-inmobiliario/02_prestauto-bima/render/03_fachada-vertical.jpg",
+          "width": 789,
+          "height": 1277,
+          "size_kb": 185,
+          "type": "render",
+          "role": "galeria",
+          "alt": "Render vertical de la fachada verde PrestAuto (formato 9:16)",
+          "pdf_page": 35
+        }
+      ],
+      "planos": []
+    }
+  ]
+}
